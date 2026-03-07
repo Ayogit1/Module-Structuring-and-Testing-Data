@@ -23,6 +23,16 @@
 
 function getCardValue(card) {
   // TODO: Implement this function
+  rankCard = card.slice(0, 1);
+  if (rankCard === "A") {
+    return 11;
+  } else if (rankCard === "J" || rankCard === "Q" || rankCard === "K") {
+    return 10;
+  } else if (+rankCard >= 2 && +rankCard <= 10) {
+    return +rankCard;
+  } else {
+    return rankCard.toThrow();
+  }
 }
 
 // The line below allows us to load the getCardValue function into tests in other files.
@@ -47,6 +57,6 @@ try {
 
   // This line will not be reached if an error is thrown as expected
   console.error("Error was not thrown for invalid card");
-} catch (e) {}
+} catch (e) { }
 
-// What other invalid card cases can you think of?
+// What other invalid card cases can you think of? "13♠"
